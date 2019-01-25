@@ -40,9 +40,9 @@ ChiDogs is a social network for people and their dogs. It is a community for peo
 
 #### Front End: React.js | Semantic UI ####
 
-#### Back End: Python | Django | JS-Cookie ####
+#### Back End: JavaScript | Express| Firebase ####
 
-#### Database: PostgreSQL ####
+#### Database: MongoDB ####
 
 #### API: Google Maps ####
 
