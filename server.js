@@ -37,3 +37,6 @@ app.use('/user', userController);
 
 
 
+app.listen(PORT, () => {
+	console.log('Server listening');
+})
