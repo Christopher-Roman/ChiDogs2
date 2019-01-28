@@ -16,3 +16,5 @@ const replySchema = new mongoose.Schema({
 	},
 	likes: [Like.schema]
 })
+
+module.exports = mongoose.model('Reply', replySchema	)

@@ -14,22 +14,25 @@ const Reply = require('./models/reply');
 const Like = require('./models/like');
 
 //Controllers
-const userController = require('./controllers/user');
-const petController = require('./controllers/pet');
-const photoController = require('./controllers/photo');
-const commentController = require('./controllers/comment');
-const replyController = require('./controllers/reply');
+const userController = require('./controllers/userController');
+const petController = require('./controllers/petController');
+const photoController = require('./controllers/photoController');
+const commentController = require('./controllers/commentController');
+const replyController = require('./controllers/replyController');
 
 //Database
 require('./db/db');
 
 //Middleware
 
-app.use(sessions({
+app.use(session({
 	secret: 'secret question information stuff.',
 	resave: false,
 	saveUninitialized: false
 }));
+app.use(bodyParser.urlencoded({extend: false}));
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // Required Controller
 app.use('/user', userController);

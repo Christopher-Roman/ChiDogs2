@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
 	photos: [Photo.schema],
 	pets: [Pet.schema],
 	likes: [Like.schema],
-	reply: [reply.schema]
+	reply: [Reply.schema]
 });
 
 module.exports = mongoose.model('User', userSchema);

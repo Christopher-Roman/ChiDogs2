@@ -6,7 +6,6 @@ const petSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	owner: [User.schema],
 	name: {
 		type: String,
 		required: true
