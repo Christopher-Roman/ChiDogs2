@@ -3,6 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const cors = require('cors')
 const session = require('express-session');
 
 //Models
@@ -22,24 +23,29 @@ const replyController = require('./controllers/replyController');
 
 //Database
 require('./db/db');
-
-//Middleware
-
 app.use(session({
 	secret: 'secret question information stuff.',
 	resave: false,
 	saveUninitialized: false
 }));
+
 app.use(bodyParser.urlencoded({extend: false}));
-app.use(methodOverride('_method'));
-app.use(express.static('public'));
+app.use(bodyParser.json())
+
+const corsOptions = {
+	origin: 'http://localhost:3000',
+	credentials: true,
+	optionsSussessStatus: 200
+};
+app.use(cors(corsOptions));
 
 // Required Controller
 app.use('/user', userController);
+app.use('/pet', petController);
+app.use('/comment', commentController);
+app.use('/reply', replyController);
+app.use('/photo', photoController);
 
-
-
-
-app.listen(PORT, () => {
-	console.log('Server listening');
+app.listen(PORT || 3000, () => {
+	console.log('Server listening ' + PORT);
 })
