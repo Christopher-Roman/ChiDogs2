@@ -7,11 +7,11 @@ const Pet 		= require('../models/pet')
 const Photo 	= require('../models/photo')
 const Like 		= require('../models/like')
 
-//New Pet Route
+//Pet Get Route
 router.get('/:index/new', async (req, res) => {
 	try {
 		if(req.session.logged) {
-			const foundPet = await Pet.findById(req.params.index);
+			const allPets = await Pet.find();
 			res.json({
 				status: 200,
 				data: foundPet
