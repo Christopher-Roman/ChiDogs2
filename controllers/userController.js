@@ -41,6 +41,7 @@ router.post('/register', async (req, res) => {
 	userEntry.photo = [];
 	userEntry.pet = [];
 	userEntry.reply = [];
+	if(userEntry.username)
 	const user = await User.create(userEntry);
 	console.log(user);
 	req.session.username = req.body.username;
